@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё портфолио</title>
+    <link rel="stylesheet" href="portfolio-styles.css">
+</head>
+<body>
+    <div class="main-screen">
+        <div class="dark"></div>
+
+        <div class="main-text" id="mainText">
+            <h1>Мейрам Санжар</h1>
+            <p class="hint">Нажмите пробел</p>
+        </div>
+
+        <div class="info" id="info">
+            <h1>Моё портфолио</h1>
+
+            <div class="info-content">
+                <div class="info-text">
+                    <div class="section">
+                        <h2>Обо мне</h2>
+                        <p>Меня зовут Санжар. Мне 20 лет. Я студент 4 курса Университета Международных Информационных Технологий.</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Мои интересы</h2>
+                        <p>✈️ Путешествия</p>
+                        <p>🚗 Автомобили</p>
+                        <p>⚽ Спорт</p>
+                        <p>🎵 Музыка</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Сам по себе</h2>
+                        <p>✓ Ответственный</p>
+                        <p>✓ Разносторонний</p>
+                        <p>✓ Немного вспыльчивый</p>
+                        <p>✓ Стараюсь развиваться</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Сильные стороны</h2>
+                        <p>Сильных сторон нет</p>
+                        <p>Но стараюсь обучаться</p>
+                        <p>Учиться чему то новому</p>
+                    </div>
+                </div>
+
+                <div class="photo-side">
+                    <img class="my-photo" src="images/photo.jpg" alt="Моя фотография">
+
+                    <div class="instagram">
+                        <h2>Instagram</h2>
+                        <a href="https://instagram.com/s.a.n.z.h.i.k_m" target="_blank">@s.a.n.z.h.i.k_m</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+            if (event.code === "Space") {
+                event.preventDefault();
+
+                const info = document.getElementById("info");
+                const mainText = document.getElementById("mainText");
+
+                if (info.style.display === "block") {
+                    info.style.display = "none";
+                    mainText.style.display = "block";
+                } else {
+                    info.style.display = "block";
+                    mainText.style.display = "none";
+                }
+            }
+        });
+
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get("user");
+        const email = params.get("email");
+
+        console.log("GET user:", username);
+        console.log("GET email:", email);
+    </script>
+</body>
+</html>
