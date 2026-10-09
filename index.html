@@ -1,99 +1,357 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Login / Register</title>
-    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
+
 <body>
-    <main class="page">
-        <section class="auth-card">
-            <div class="logo">MS</div>
-            <h1>Добро пожаловать</h1>
-            <p class="subtitle">Войдите или создайте аккаунт для просмотра портфолио</p>
 
-            <div id="normalState">
-                <form id="loginForm">
-                    <div class="field">
-                        <label for="loginEmail">Email</label>
-                        <input type="email" id="loginEmail" placeholder="example@gmail.com">
-                        <span class="error" id="loginEmailError"></span>
-                    </div>
+<main class="page">
 
-                    <div class="field">
-                        <label for="loginPassword">Пароль</label>
-                        <input type="password" id="loginPassword" placeholder="Минимум 6 символов">
-                        <span class="error" id="loginPasswordError"></span>
-                    </div>
+    <section class="auth-card">
 
-                    <button class="primary-button" type="submit">Войти</button>
-                </form>
+        <div class="logo">
+            MS
+        </div>
 
-                <div class="line">
-                    <span></span>
-                    <p>или</p>
-                    <span></span>
+
+        <h1 class="text-center">
+            Добро пожаловать
+        </h1>
+
+
+        <p class="subtitle text-center">
+            Войдите или создайте новый аккаунт
+        </p>
+
+
+        <div id="normalState">
+
+            <form id="loginForm">
+
+                <div class="mb-3">
+
+                    <label
+                        for="loginEmail"
+                        class="form-label"
+                    >
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        class="form-control"
+                        placeholder="example@gmail.com"
+                    >
+
+                    <span
+                        class="error"
+                        id="loginEmailError"
+                    ></span>
+
                 </div>
 
-                <button class="secondary-button" id="openRegister" type="button">Создать аккаунт</button>
-            </div>
 
-            <div class="registered-state" id="registeredState">
-                <p>Вы уже зарегистрированы</p>
-                <p class="saved-user" id="savedUser"></p>
-                <button class="primary-button" id="openPortfolio" type="button">Открыть портфолио</button>
-            </div>
-        </section>
-    </main>
+                <div class="mb-3">
 
-    <div class="modal" id="registerModal">
-        <section class="modal-window">
-            <button class="close-button" id="closeRegister" type="button">×</button>
-            <div class="small-logo">MS</div>
-            <h2>Регистрация</h2>
-            <p class="modal-subtitle">Заполните данные для создания аккаунта</p>
+                    <label
+                        for="loginPassword"
+                        class="form-label"
+                    >
+                        Пароль
+                    </label>
 
-            <form id="registerForm" method="POST" action="./register">
-                <div class="field">
-                    <label for="name">Имя</label>
-                    <input type="text" id="name" name="name" placeholder="Ваше имя">
-                    <span class="error" id="nameError"></span>
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        class="form-control"
+                        placeholder="Минимум 6 символов"
+                    >
+
+                    <span
+                        class="error"
+                        id="loginPasswordError"
+                    ></span>
+
                 </div>
 
-                <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
-                    <span class="error" id="emailError"></span>
-                </div>
 
-                <div class="field">
-                    <label for="password">Пароль</label>
-                    <input type="password" id="password" name="password" placeholder="Минимум 6 символов">
-                    <span class="error" id="passwordError"></span>
-                </div>
+                <button
+                    class="btn btn-primary w-100"
+                    type="submit"
+                >
+                    Войти
+                </button>
 
-                <div class="field">
-                    <label for="confirmPassword">Повтор пароля</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Повторите пароль">
-                    <span class="error" id="confirmPasswordError"></span>
-                </div>
-
-                <div class="checkbox-row">
-                    <input type="checkbox" id="agreement" name="agreement">
-                    <label for="agreement">Я согласен с условиями регистрации</label>
-                </div>
-                <span class="error checkbox-error" id="agreementError"></span>
-
-                <button class="primary-button" type="submit">Зарегистрироваться</button>
             </form>
 
-            <p class="status-message" id="registerStatus"></p>
-        </section>
-    </div>
-    
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+            <div class="line">
+
+                <span></span>
+
+                <p>или</p>
+
+                <span></span>
+
+            </div>
+
+
+            <button
+                class="btn btn-outline-light w-100"
+                id="openRegister"
+                type="button"
+            >
+                Создать аккаунт
+            </button>
+
+        </div>
+
+
+        <div
+            class="registered-state"
+            id="registeredState"
+        >
+
+            <p>
+                Вы уже зарегистрированы
+            </p>
+
+            <p
+                class="saved-user"
+                id="savedUser"
+            ></p>
+
+            <button
+                class="btn btn-primary w-100"
+                id="openPortfolio"
+                type="button"
+            >
+                Открыть портфолио
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<div
+    class="modal-custom"
+    id="registerModal"
+>
+
+    <section class="register-window">
+
+        <button
+            class="close-button"
+            id="closeRegister"
+            type="button"
+        >
+            ×
+        </button>
+
+
+        <div class="small-logo">
+            MS
+        </div>
+
+
+        <h2 class="text-center">
+            Регистрация
+        </h2>
+
+
+        <p class="modal-subtitle text-center">
+            Заполните данные для создания аккаунта
+        </p>
+
+
+        <form
+            id="registerForm"
+            method="POST"
+            action="./register"
+        >
+
+
+            <div class="mb-3">
+
+                <label
+                    for="name"
+                    class="form-label"
+                >
+                    Имя
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    placeholder="Ваше имя"
+                >
+
+                <span
+                    class="error"
+                    id="nameError"
+                ></span>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="email"
+                    class="form-label"
+                >
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="example@gmail.com"
+                >
+
+                <span
+                    class="error"
+                    id="emailError"
+                ></span>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="password"
+                    class="form-label"
+                >
+                    Пароль
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Минимум 6 символов"
+                >
+
+                <span
+                    class="error"
+                    id="passwordError"
+                ></span>
+
+            </div>
+
+
+            <div class="mb-3">
+
+                <label
+                    for="confirmPassword"
+                    class="form-label"
+                >
+                    Повтор пароля
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    class="form-control"
+                    placeholder="Повторите пароль"
+                >
+
+                <span
+                    class="error"
+                    id="confirmPasswordError"
+                ></span>
+
+            </div>
+
+
+            <div class="form-check mb-1">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="agreement"
+                    name="agreement"
+                >
+
+                <label
+                    class="form-check-label"
+                    for="agreement"
+                >
+                    Я согласен с условиями регистрации
+                </label>
+
+            </div>
+
+
+            <span
+                class="error checkbox-error"
+                id="agreementError"
+            ></span>
+
+
+            <button
+                class="btn btn-primary w-100 mt-3"
+                type="submit"
+            >
+                Зарегистрироваться
+            </button>
+
+        </form>
+
+
+        <p
+            class="status-message"
+            id="registerStatus"
+        ></p>
+
+    </section>
+
+</div>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
